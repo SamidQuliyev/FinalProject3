@@ -1,0 +1,42 @@
+﻿@model Partners
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Partnyor şirkət yaradın</h4>
+
+                <form method="post" enctype="multipart/form-data" class="forms-sample">
+                    <div class="form-group">
+                        <label asp-for="Name">Partnyor şirkət</label>
+                        <input asp-for="Name">
+                        <span asp-validation-for="Name" class="alert-danger"></span>
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Photo">Loqosu</label>
+                        <input asp-for="Photo">
+                        <span asp-validation-for="Photo" class="alert-danger"></span>
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Information">Haqqında</label>
+                        <input asp-for="Information">
+                        <span asp-validation-for="Information" class="alert-danger"></span>
+
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary me-2">Sumbit</button>
+                    <a asp-action="Index" class="btn btn-light">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+
+}
+
+

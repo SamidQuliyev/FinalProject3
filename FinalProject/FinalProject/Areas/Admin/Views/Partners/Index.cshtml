@@ -1,0 +1,117 @@
+﻿@model List<Partners>
+<div class="row">
+
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-content-center">
+                    <h4 class="card-title">Partnyorlar</h4>
+                    <a asp-action="Create" class="btn btn-primary btn-md my-3 btn-rounded">Yarat</a>
+                </div>
+                <div class="table-responsive">
+
+                    <table id="myTable" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Partnyor şirkətlər
+                                </th>
+                                <th>
+                                    Loqosu
+                                </th>
+                                @*<th>
+                                        Haqqında
+                                    </th>*@
+                                <th>
+                                    Vəziyyəti
+                                </th>
+                                <th>
+                                    Fəaliyyətlər
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Partners partners in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @partners.Name
+                                    </td>
+                                    <td>
+                                        <img style="object-fit : cover; width: 100px; height: 100px;" src="~/images/partners/@partners.Image" />
+                                    </td>
+                                    @*<td>
+                                            @partners.Information
+
+                                        </td>*@
+
+                                    <th>
+                                        @if (partners.IsDeactive)
+                                        {<div class="text-danger">Deaktiv </div>
+                                        }
+                                        else
+
+                                        {<div class="text-success">Aktiv </div>
+                                        }
+                                    </th>
+
+
+
+                                    <td>
+                                        <a class="btn btn-warning btn-md btn-rounded" asp-action="Detail"
+                                           asp-route-id="@partners.Id">Ətraflı</a>
+                                        <a class="btn btn-secondary btn-md  btn-rounded" asp-action="Update"
+                                           asp-route-id="@partners.Id">Redaktə et</a>
+
+                                        @if (partners.IsDeactive)
+                                        {
+
+                                            <a class="btn btn-primary btn-md btn-rounded" asp-action="Activation"
+                                               asp-route-id="@partners.Id">Aktiv</a>}
+                                        else
+                                        {
+                                            <a class="btn btn-danger btn-md  btn-rounded" asp-action="Activation"
+                                               asp-route-id="@partners.Id">Deaktiv</a>
+                                        }
+
+
+                                    </td>
+                                </tr>
+                            }
+
+
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts{
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
+
+    <script>
+        $(function () {
+            $("#myTable").dataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+        })
+    </script>
+
+}
+
+

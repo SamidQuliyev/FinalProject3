@@ -1,0 +1,18 @@
+﻿@model Campaigns
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="row">
+
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4> Kampaniyanın adı: @Model.Name</h4>
+                <div>Haqqında: @Model.Information</div>
+
+                <a class="btn btn-primary my-3" asp-action="Index">Geriyə</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+﻿@model Branches
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Kampaniya redaktə edin</h4>
+                <form method="post" class="forms-sample">
+                    <div class="form-group">
+                        <label asp-for="Name">Adı</label>
+                        <input asp-for="Name" class="form-control">
+                        <span asp-validation-for="Name" class="alert-danger"></span>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Həkimləri seçin</label>
+                        <select class="form-control" name="posId">
+                            @foreach (Doctors Doctors in ViewBag.Doctors)
+                            {
+                                <option value="@Doctors.Id">@Doctors.FullName</option>
+                            }
+
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary me-2">Qeyd et</button>
+                    <a asp-action="Index" class="btn btn-light">Çıx</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+
+}
+
+

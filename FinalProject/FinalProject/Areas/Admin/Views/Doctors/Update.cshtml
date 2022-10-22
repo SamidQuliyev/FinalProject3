@@ -1,0 +1,74 @@
+﻿@model Doctors
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card-body">
+            <h4 class="card-title">Həkim redaktə edin</h4>
+            <div>
+                <div class="d-flex justify-content-center"> <img style="object-fit : cover; width: 150px; height: 200px;" src="~/images/doctors/@Model.Image" /> </div>
+            </div>
+            <form method="post" enctype="multipart/form-data" class="forms-sample">
+                <div class="form-group">
+                    <label asp-for="Photo">Şəkli</label>
+                    <input asp-for="Photo" class="form-control">
+                    <span asp-validation-for="Photo" class="alert-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="Branches">Şöbəsi</label>
+                    <input asp-for="Branches" class="form-control">
+                    <span asp-validation-for="Branches" class="alert-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="FullName">Adı</label>
+                    <input asp-for="FullName" class="form-control">
+                    <span asp-validation-for="FullName" class="alert-danger"></span>
+
+                </div>
+
+                <div class="form-group">
+                    <label>Select Branches</label>
+                    <select class="form-control" name="posId">
+                        @foreach (Branches Branches in ViewBag.Branches)
+                        {
+                            <option value="@Branches.Id">@Branches.Name</option>
+                        }
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Salary">Maaşı</label>
+                    <input asp-for="Salary" class="form-control">
+                    <span asp-validation-for="Salary" class="alert-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address">Ünvanı</label>
+                    <input asp-for="Address" class="form-control">
+                    <span asp-validation-for="Address" class="alert-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="Contact">Əlaqə nömrəsi</label>
+                    <input asp-for="Contact" class="form-control">
+                    <span asp-validation-for="Contact" class="alert-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="Education">Adı</label>
+                    <input asp-for="Education" class="form-control">
+                    <span asp-validation-for="Education" class="alert-danger"></span>
+
+                </div>
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <a asp-action="Index" class="btn btn-light">Cancel</a>
+            </form>
+        </div>
+        </div>
+    </div>
+
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+
+}

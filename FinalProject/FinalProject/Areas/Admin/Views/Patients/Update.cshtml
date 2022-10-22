@@ -1,0 +1,43 @@
+﻿@model Patients
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Xəstə redaktə edin</h4>
+                <div class="form-group">
+
+                    <label asp-for="PatientNumber">Xəstə nömrəsi</label>
+                    <input asp-for="PatientNumber" class="form-control">
+                    <span asp-validation-for="PatientNumber" class="alert-danger"></span>
+
+                </div>
+                <form method="post" class="forms-sample">
+                    <div class="form-group">
+                        <label asp-for="Name">Adı</label>
+                        <input asp-for="Name" class="form-control">
+                        <span asp-validation-for="Name" class="alert-danger"></span>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <label asp-for="Doctors">Həkimi</label>
+                        <input asp-for="Doctors" class="form-control">
+                        <span asp-validation-for="Doctors" class="alert-danger"></span>
+
+                    </div>
+
+                    <button type="submit" class="btn btn-primary me-2">Qeyd et</button>
+                    <a asp-action="Index" class="btn btn-light">Çıx</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+
+}
+
+

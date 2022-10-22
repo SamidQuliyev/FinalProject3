@@ -1,0 +1,27 @@
+﻿@model Partners
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="row">
+
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+             
+                <div class="d-flex justify-content-center"> <img style="object-fit : cover; width: 100px; height: 100px;" src="~/images/partners/@Model.Image" /> </div>
+                
+                <div> Adı : @Model.Name</div>
+                @*<div> Loqosu : @Model.Image</div>*@
+                <div> Haqqında : @Model.Information</div>
+
+
+
+
+
+                <a class="btn btn-secondary  btn-sm my-3" asp-action="Index">Go Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+
